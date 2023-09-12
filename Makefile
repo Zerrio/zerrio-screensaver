@@ -22,7 +22,7 @@ install:
 	mkdir -pv ${DESTDIR}/opt/apps/zerrio-screensaver/
 	mkdir -pv ${DESTDIR}/opt/apps/zerrio-screensaver/modules/
 	mkdir -pv ${DESTDIR}/opt/apps/zerrio-screensaver/conf
-	install -v misc/deepin_screen_protect.conf ${DESTDIR}/opt/apps/zerrio-screensaver/conf
+	install -v misc/screen_protect.conf ${DESTDIR}/opt/apps/zerrio-screensaver/conf
 	install -v $(TARGET) ${DESTDIR}/opt/apps/zerrio-screensaver
 	install -v modules/* ${DESTDIR}/opt/apps/zerrio-screensaver/modules
 

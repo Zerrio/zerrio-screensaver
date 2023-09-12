@@ -14,7 +14,7 @@
     program=/home/uos/screen_clock2
     代表开启屏保，超时时间为60秒，超时后执行屏幕保护程序/home/uos/screen_clock2
 */
-#define SCREEN_PROTECT_CONFIG "/opt/apps/zerrio-screensaver/conf/deepin_screen_protect.conf"
+#define SCREEN_PROTECT_CONFIG "/opt/apps/zerrio-screensaver/conf/screen_protect.conf"
 
 enum event_type {
     EVENT_TYPE_KEYBOARD = 1,
