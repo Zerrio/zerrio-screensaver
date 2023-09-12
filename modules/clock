@@ -1,0 +1,78 @@
+#!/bin/python3
+
+import tkinter as tk
+from tkinter import messagebox
+import time
+from datetime import datetime
+
+class Clock:
+	def __init__(self):
+		self.root = tk.Tk()
+		self.root.attributes('-fullscreen', True)
+		self.root.configure(background='black')
+		self.root.config(cursor="none")
+		self.label_time = tk.Label(self.root, font=('Helvetica', 100), fg='white', bg='black')
+		self.label_time.pack(expand=True)
+		self.label_date = tk.Label(self.root, font=('Helvetica', 50), fg='white', bg='black')
+		self.label_date.pack(expand=True)
+		self.update_clock()
+		self.root.bind("<Button-1>", self.prompt_password) # bind left mouse click to quit function
+		self.root.bind("<Key>", self.prompt_password) # bind any key to quit function
+		#self.root.bind("<Double-Button-1>", self.prompt_password) # bind left mouse click to quit function
+		self.root.bind("<KeyPress-u>", self.quit)
+		self.root.bind("<KeyPress-U>", self.quit)
+		#self.root.bind("<Motion>", self.prompt_password) # bind mouse movement to quit function
+		self.root.mainloop()
+
+	def update_clock(self):
+		current_time = time.strftime('%H:%M:%S')
+		current_date = datetime.now().strftime('%Y-%m-%d')
+		self.label_time.config(text=current_time)
+		self.label_date.config(text=current_date)
+		self.root.after(1000, self.update_clock)
+	
+	def destroy_e_and_b(self):
+		self.root.config(cursor="none")
+		self.e.destroy()
+		self.b.destroy()
+		self.root.bind("<Key>", self.prompt_password)
+		self.root.bind("<KeyPress-u>", self.quit)
+		self.root.bind("<KeyPress-U>", self.quit)
+		self.root.bind("<Button-1>", self.prompt_password) # bind left mouse click to quit function
+
+	def quit(self, event):
+		self.root.destroy() # destroy the window when left mouse button or any key is clicked
+
+	def check(self):
+		if self.e.get() == "zerrio":
+			self.e.destroy()
+			self.b.destroy()
+			self.root.destroy()
+			return True
+		else:
+			messagebox.showwarning(title='提示', message='密码错误')
+			self.destroy_e_and_b()
+			return False
+
+	def prompt_password(self, event):
+		self.root.after(20000, self.destroy_e_and_b)
+		self.root.unbind("<KeyPress-u>")
+		self.root.unbind("<KeyPress-U>")
+		self.root.unbind("<Button-1>") # bind left mouse click to quit function
+		self.root.unbind("<Key>")
+		#self.root.unbind("<Motion>")
+		self.root.config(cursor="")
+		Dy_String = tk.StringVar()
+		#e = tk.Entry(self.root, textvariable =Dy_String,validate ="focuson",validatecommand=self.check)
+		self.e = tk.Entry(self.root)
+		self.e["textvariable"] = Dy_String
+		self.b = tk.Button(self.root,text="解锁", command=self.check)
+		self.e.pack(padx=20, pady=20)
+		self.b.pack(padx=20, pady=30)
+		#e.insert(0,'输入密码解锁')
+		#self.root.mainloop()
+		#time.sleep(1)
+		#self.root.destroy() # destroy the window when left mouse button or any key is clicked
+
+if __name__ == '__main__':
+	Clock()

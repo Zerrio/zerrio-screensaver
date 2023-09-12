@@ -1,0 +1,13 @@
+Source: zerrio-screensaver
+Section: devel
+Priority: optional
+Maintainer: Zerrio <463482872@qq.com>
+Build-Depends: debhelper (>= 11)
+Standards-Version: 4.1.3
+Homepage: https://github.com/Zerrio/zerrio-screensaver
+
+Package: zerrio-screensaver
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, python3-minimal, python3-tk
+Description: simple screensaver program
+ zerrio-screensaver is a simple screensaver program

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+chmod +s /opt/apps/zerrio-screensaver/zerrio-screensaver 2>/dev/null
