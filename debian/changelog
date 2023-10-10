@@ -1,3 +1,12 @@
+zerrio-screensaver (0.0.2) unstable; urgency=medium
+
+  * rename deepin_screen_protect.conf to screen_protect.conf.
+  * 配置文件enable字段改为1，默认启动屏保
+  * 暂时没有提供修改配置文件的命令，需要手动修改，修改后需要手动重启程序生效，后续添加命令配置以及自动触发重读配置功能
+  * 新增显示星期数
+
+ --  <463482872@qq.com>  Tue, 12 Sep 2023 10:31:40 +0800
+
 zerrio-screensaver (0.0.1) unstable; urgency=medium
 
   * initial release

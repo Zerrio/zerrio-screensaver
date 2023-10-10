@@ -27,6 +27,19 @@ class Clock:
 	def update_clock(self):
 		current_time = time.strftime('%H:%M:%S')
 		current_date = datetime.now().strftime('%Y-%m-%d')
+		# 显示星期几
+		week_day_dict = {
+			0: '星期一',
+			1: '星期二',
+			2: '星期三',
+			3: '星期四',
+			4: '星期五',
+			5: '星期六',
+			6: '星期日',
+		}
+		week_day = datetime.now().weekday()
+		week_day = week_day_dict[week_day]
+		current_date = current_date + ' ' + week_day
 		self.label_time.config(text=current_time)
 		self.label_date.config(text=current_date)
 		self.root.after(1000, self.update_clock)
